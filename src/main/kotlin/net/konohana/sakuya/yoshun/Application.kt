@@ -1,7 +1,10 @@
 package net.konohana.sakuya.yoshun
 
-import io.ktor.server.application.*
-import net.konohana.sakuya.yoshun.plugins.*
+import io.ktor.server.application.Application
+import net.konohana.sakuya.yoshun.plugins.configureHTTP
+import net.konohana.sakuya.yoshun.plugins.configureRouting
+import net.konohana.sakuya.yoshun.plugins.configureSerialization
+
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
