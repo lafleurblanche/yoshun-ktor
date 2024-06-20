@@ -10,7 +10,7 @@ fun Application.settingKoin() {
     install(Koin) {
         modules(
             ArgwModules.argwKoinModules,
-            EnjuModules.enjuKoinModules
+            EnjuModules.enjuKoinModules,
         )
     }
 }
