@@ -8,6 +8,7 @@ import io.ktor.server.application.install
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.routing.routing
 import net.konohana.sakuya.yoshun.router.argw.argwRouter
+import net.konohana.sakuya.yoshun.router.enju.enjuRouter
 
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
@@ -18,5 +19,6 @@ fun Application.configureSerialization() {
     }
     routing {
         argwRouter()
+        enjuRouter()
     }
 }
