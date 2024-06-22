@@ -9,4 +9,8 @@ class Neue03Controller(
     suspend fun getNeue03StaList(): List<Neue03Dto> {
         return neue03Service.getNeue03()
     }
+
+    suspend fun getNeue03StaListByStaCode(staCode: String): Neue03Dto? {
+        return neue03Service.getNeue03ByStaCode(staCode = staCode)
+    }
 }

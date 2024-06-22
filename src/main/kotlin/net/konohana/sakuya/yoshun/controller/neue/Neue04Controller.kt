@@ -9,4 +9,8 @@ class Neue04Controller(
     suspend fun getNeue04StaList(): List<Neue04Dto> {
         return neue04Service.getNeue04()
     }
+
+    suspend fun getNeue04StaListByStaCode(staCode: String): Neue04Dto? {
+        return neue04Service.getNeue04ByStaCode(staCode = staCode)
+    }
 }
