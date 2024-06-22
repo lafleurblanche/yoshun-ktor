@@ -9,6 +9,7 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.routing.routing
 import net.konohana.sakuya.yoshun.router.argw.argwRouter
 import net.konohana.sakuya.yoshun.router.enju.enjuRouter
+import net.konohana.sakuya.yoshun.router.lilie.lilieRouter
 import net.konohana.sakuya.yoshun.router.neue.neueRouter
 
 fun Application.configureSerialization() {
@@ -22,5 +23,6 @@ fun Application.configureSerialization() {
         argwRouter()
         enjuRouter()
         neueRouter()
+        lilieRouter()
     }
 }
