@@ -21,4 +21,21 @@ class Neue02Service {
             Neue02.selectAll().map(::resultRowNeue02)
         }
     }
+
+    suspend fun getNeue02ByStaCode(staCode: String): Neue02Dto? {
+        return KaedeDatabaseFactory.dbQuery {
+            Neue02.selectAll()
+                .where { Neue02.staCode eq staCode }
+                .singleOrNull()?.let {
+                    Neue02Dto(
+                        id = it[Neue02.id],
+                        routeID = it[Neue02.routeID],
+                        staCode = it[Neue02.staCode],
+                        fromStaCode = it[Neue02.fromStaCode],
+                        toStaCode = it[Neue02.toStaCode],
+                        staName = it[Neue02.staName],
+                    )
+                }
+        }
+    }
 }
