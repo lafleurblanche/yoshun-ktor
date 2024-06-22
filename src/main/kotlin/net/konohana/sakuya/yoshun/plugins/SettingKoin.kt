@@ -6,6 +6,7 @@ import net.konohana.sakuya.yoshun.dimodules.ArgwModules
 import net.konohana.sakuya.yoshun.dimodules.EnjuModules
 import net.konohana.sakuya.yoshun.dimodules.LilieModules
 import net.konohana.sakuya.yoshun.dimodules.NeueModules
+import net.konohana.sakuya.yoshun.dimodules.faredist.NeueFareDistModules
 import org.koin.ktor.plugin.Koin
 
 fun Application.settingKoin() {
@@ -15,6 +16,7 @@ fun Application.settingKoin() {
             EnjuModules.enjuKoinModules,
             NeueModules.neueKoinModules,
             LilieModules.lilieKoinModules,
+            NeueFareDistModules.neueFareDistKoinModules,
         )
     }
 }
