@@ -1,5 +1,6 @@
 package net.konohana.sakuya.yoshun.router.neue
 
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
@@ -23,6 +24,19 @@ fun Route.neueRouter() {
     route("neue01") {
         get {
             call.respond(neue01Controller.getNeue01StaList())
+        }
+    }
+    route("neue01") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val neue01StaData = neue01Controller.getNeue01StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(neue01StaData)
+            }
         }
     }
     route("neue02") {
