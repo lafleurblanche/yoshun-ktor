@@ -1,5 +1,7 @@
 package net.konohana.sakuya.yoshun.dimodules.faredist
 
+import net.konohana.sakuya.yoshun.controller.faredist.neue.Neue01FareDistController
+import net.konohana.sakuya.yoshun.controller.faredist.neue.Neue02FareDistController
 import net.konohana.sakuya.yoshun.services.faredist.neue.Neue01FareDistService
 import net.konohana.sakuya.yoshun.services.faredist.neue.Neue02FareDistService
 import net.konohana.sakuya.yoshun.services.faredist.neue.Neue03FareDistService
@@ -24,5 +26,8 @@ object NeueFareDistModules {
         singleOf(::Neue07FareDistService)
         singleOf(::Neue08FareDistService)
 
+        // controller
+        singleOf(::Neue01FareDistController)
+        singleOf(::Neue02FareDistController)
     }
 }
