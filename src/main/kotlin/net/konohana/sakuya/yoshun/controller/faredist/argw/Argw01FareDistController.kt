@@ -9,4 +9,8 @@ class Argw01FareDistController (
     suspend fun getArgw01FareDistList(): List<Argw01FareDistDataDto> {
         return neue01FareDistService.getArgw01FareDist()
     }
+
+    suspend fun getArgw01FareDistListByStaCode(staCode: String): Argw01FareDistDataDto? {
+        return neue01FareDistService.getArgw01FareDistByStaCode(staCode = staCode)
+    }
 }
