@@ -8,6 +8,5 @@ data class Argw01FareDistDataDto (
     val routeID: String,
     val staCode: String,
     val staName: String,
-    val strtPtStaCode: String,
     val distance: Double,
 )
