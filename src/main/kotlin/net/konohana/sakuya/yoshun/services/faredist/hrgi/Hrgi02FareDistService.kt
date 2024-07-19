@@ -12,13 +12,32 @@ class Hrgi02FareDistService {
         routeID = row[Hrgi02FareDist.routeID],
         staCode = row[Hrgi02FareDist.staCode],
         staName = row[Hrgi02FareDist.staName],
-        strtPtStaCode = row[Hrgi02FareDist.strtPtStaCode],
         distance = row[Hrgi02FareDist.distance],
     )
 
     suspend fun getHrgi02FareDist(): List<Hrgi02FareDistDataDto> {
         return KaedeDatabaseFactory.dbQuery {
             Hrgi02FareDist.selectAll().map(::resultRowHrgi02FareDist)
+        }
+    }
+
+    suspend fun getHrgi02FareDistByStaCode(staCode: String): Hrgi02FareDistDataDto? {
+        return KaedeDatabaseFactory.dbQuery {
+            Hrgi02FareDist.select(
+                Hrgi02FareDist.id,
+                Hrgi02FareDist.routeID,
+                Hrgi02FareDist.staCode,
+                Hrgi02FareDist.staName,
+                Hrgi02FareDist.distance,
+            ).where { Hrgi02FareDist.staCode eq staCode }.singleOrNull()?.let {
+                Hrgi02FareDistDataDto(
+                    id = it[Hrgi02FareDist.id].toString(),
+                    routeID = it[Hrgi02FareDist.routeID],
+                    staCode = it[Hrgi02FareDist.staCode],
+                    staName = it[Hrgi02FareDist.staName],
+                    distance = it[Hrgi02FareDist.distance],
+                )
+            }
         }
     }
 }

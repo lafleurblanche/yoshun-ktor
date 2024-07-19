@@ -6,12 +6,14 @@ import net.konohana.sakuya.yoshun.controller.lilie.Lilie03Controller
 import net.konohana.sakuya.yoshun.controller.lilie.Lilie04Controller
 import net.konohana.sakuya.yoshun.controller.lilie.Lilie05Controller
 import net.konohana.sakuya.yoshun.controller.lilie.Lilie06Controller
+import net.konohana.sakuya.yoshun.controller.lilie.Lilie07Controller
 import net.konohana.sakuya.yoshun.services.lilie.Lilie01Service
 import net.konohana.sakuya.yoshun.services.lilie.Lilie02Service
 import net.konohana.sakuya.yoshun.services.lilie.Lilie03Service
 import net.konohana.sakuya.yoshun.services.lilie.Lilie04Service
 import net.konohana.sakuya.yoshun.services.lilie.Lilie05Service
 import net.konohana.sakuya.yoshun.services.lilie.Lilie06Service
+import net.konohana.sakuya.yoshun.services.lilie.Lilie07Service
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -25,6 +27,7 @@ object LilieModules {
         singleOf(::Lilie04Service)
         singleOf(::Lilie05Service)
         singleOf(::Lilie06Service)
+        singleOf(::Lilie07Service)
 
         // controller
         singleOf(::Lilie01Controller)
@@ -33,5 +36,6 @@ object LilieModules {
         singleOf(::Lilie04Controller)
         singleOf(::Lilie05Controller)
         singleOf(::Lilie06Controller)
+        singleOf(::Lilie07Controller)
     }
 }
