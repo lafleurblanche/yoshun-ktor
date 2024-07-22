@@ -21,4 +21,21 @@ class Lilie01Service {
             Lilie01.selectAll().map(::resultRowLilie01)
         }
     }
+
+    suspend fun getLilie01ByStaCode(staCode: String): Lilie01Dto? {
+        return KaedeDatabaseFactory.dbQuery {
+            Lilie01.selectAll()
+                .where { Lilie01.staCode eq staCode }
+                .singleOrNull()?.let {
+                    Lilie01Dto(
+                        id = it[Lilie01.id],
+                        routeID = it[Lilie01.routeID],
+                        staCode = it[Lilie01.staCode],
+                        fromStaCode = it[Lilie01.fromStaCode],
+                        toStaCode = it[Lilie01.toStaCode],
+                        staName = it[Lilie01.staName],
+                    )
+                }
+        }
+    }
 }
