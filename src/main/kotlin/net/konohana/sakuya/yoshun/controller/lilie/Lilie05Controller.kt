@@ -9,4 +9,8 @@ class Lilie05Controller(
     suspend fun getLilie05StaList(): List<Lilie05Dto> {
         return lilie05Service.getLilie05()
     }
+
+    suspend fun getLilie05StaListByStaCode(staCode: String): Lilie05Dto? {
+        return lilie05Service.getLilie05ByStaCode(staCode = staCode)
+    }
 }
