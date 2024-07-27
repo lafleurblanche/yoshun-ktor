@@ -1,5 +1,6 @@
 package net.konohana.sakuya.yoshun.router.lilie
 
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
@@ -25,9 +26,35 @@ fun Route.lilieRouter() {
             call.respond(lilie01Controller.getLilie01StaList())
         }
     }
+    route("lilie01") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val lilie01StaData = lilie01Controller.getLilie01StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(lilie01StaData)
+            }
+        }
+    }
     route("lilie02") {
         get {
             call.respond(lilie02Controller.getLilie02StaList())
+        }
+    }
+    route("lilie02") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val lilie02StaData = lilie02Controller.getLilie02StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(lilie02StaData)
+            }
         }
     }
     route("lilie03") {
@@ -35,9 +62,35 @@ fun Route.lilieRouter() {
             call.respond(lilie03Controller.getLilie03StaList())
         }
     }
+    route("lilie03") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val lilie03StaData = lilie03Controller.getLilie03StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(lilie03StaData)
+            }
+        }
+    }
     route("lilie04") {
         get {
             call.respond(lilie04Controller.getLilie04StaList())
+        }
+    }
+    route("lilie04") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val lilie04StaData = lilie04Controller.getLilie04StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(lilie04StaData)
+            }
         }
     }
     route("lilie05") {
