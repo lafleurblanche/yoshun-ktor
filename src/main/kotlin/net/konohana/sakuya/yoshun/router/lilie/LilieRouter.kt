@@ -98,9 +98,35 @@ fun Route.lilieRouter() {
             call.respond(lilie05Controller.getLilie05StaList())
         }
     }
+    route("lilie05") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val lilie05StaData = lilie05Controller.getLilie05StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(lilie05StaData)
+            }
+        }
+    }
     route("lilie06") {
         get {
             call.respond(lilie06Controller.getLilie06StaList())
+        }
+    }
+    route("lilie06") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val lilie06StaData = lilie06Controller.getLilie06StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(lilie06StaData)
+            }
         }
     }
 }

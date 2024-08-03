@@ -21,4 +21,21 @@ class Argw01Service {
             Argw01.selectAll().map(::resultRowArgw01)
         }
     }
+
+    suspend fun getArgw01ByStaCode(staCode: String): Argw01Dto? {
+        return KaedeDatabaseFactory.dbQuery {
+            Argw01.selectAll()
+                .where { Argw01.staCode eq staCode }
+                .singleOrNull()?.let {
+                    Argw01Dto(
+                        id = it[Argw01.id],
+                        routeID = it[Argw01.routeID],
+                        staCode = it[Argw01.staCode],
+                        fromStaCode = it[Argw01.fromStaCode],
+                        toStaCode = it[Argw01.toStaCode],
+                        staName = it[Argw01.staName],
+                    )
+                }
+        }
+    }
 }
