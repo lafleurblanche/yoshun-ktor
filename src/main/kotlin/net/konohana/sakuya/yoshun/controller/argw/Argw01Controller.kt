@@ -9,4 +9,8 @@ class Argw01Controller(
     suspend fun getArgw01StaList(): List<Argw01Dto> {
         return argw01Service.getArgw01()
     }
+
+    suspend fun getArgw01StaListByStaCode(staCode: String): Argw01Dto? {
+        return argw01Service.getArgw01ByStaCode(staCode = staCode)
+    }
 }
