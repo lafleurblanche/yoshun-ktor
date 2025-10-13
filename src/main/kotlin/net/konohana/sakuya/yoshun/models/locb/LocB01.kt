@@ -1,4 +1,4 @@
-package net.konohana.sakuya.yoshun.models.loc
+package net.konohana.sakuya.yoshun.models.locb
 
 import org.jetbrains.exposed.sql.Table
 
