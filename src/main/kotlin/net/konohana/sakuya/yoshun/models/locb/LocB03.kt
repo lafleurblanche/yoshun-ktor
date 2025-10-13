@@ -1,9 +1,9 @@
-package net.konohana.sakuya.yoshun.models.loc
+package net.konohana.sakuya.yoshun.models.locb
 
 import org.jetbrains.exposed.sql.Table
 
 
-object LocB04 : Table("locb_lb04") {
+object LocB03 : Table("locb_lb03") {
     val id = integer("id").autoIncrement()
     val routeID = varchar("route_id", length = 20)
     val staCode = varchar("sta_code", length = 20)
@@ -11,3 +11,4 @@ object LocB04 : Table("locb_lb04") {
     val toStaCode = varchar("to_sta_code", length = 20)
     val staName = varchar("sta_name", length = 20)
 }
+
