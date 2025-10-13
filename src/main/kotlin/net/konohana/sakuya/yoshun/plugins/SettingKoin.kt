@@ -7,9 +7,6 @@ import net.konohana.sakuya.yoshun.dimodules.EnjuModules
 import net.konohana.sakuya.yoshun.dimodules.LilieModules
 import net.konohana.sakuya.yoshun.dimodules.NeueModules
 import net.konohana.sakuya.yoshun.dimodules.ThirdModules
-import net.konohana.sakuya.yoshun.dimodules.faredist.ArgwFareDistModules
-import net.konohana.sakuya.yoshun.dimodules.faredist.HrgiFareDistModules
-import net.konohana.sakuya.yoshun.dimodules.faredist.NeueFareDistModules
 import org.koin.ktor.plugin.Koin
 
 fun Application.settingKoin() {
@@ -20,9 +17,6 @@ fun Application.settingKoin() {
             NeueModules.neueKoinModules,
             LilieModules.lilieKoinModules,
             ThirdModules.thirdKoinModule,
-            ArgwFareDistModules.argwFareDistKoinModules,
-            HrgiFareDistModules.hrgiFareDistKoinModules,
-            NeueFareDistModules.neueFareDistKoinModules,
         )
     }
 }
