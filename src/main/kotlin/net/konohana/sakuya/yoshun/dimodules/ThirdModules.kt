@@ -17,6 +17,9 @@ import net.konohana.sakuya.yoshun.services.third.Third04Service
 import net.konohana.sakuya.yoshun.services.third.Third05Service
 import net.konohana.sakuya.yoshun.services.third.Third06Service
 import net.konohana.sakuya.yoshun.services.third.Third07Service
+import net.konohana.sakuya.yoshun.services.third.Third08Service
+import net.konohana.sakuya.yoshun.services.third.Third09Service
+import net.konohana.sakuya.yoshun.services.third.Third10Service
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -30,6 +33,9 @@ object ThirdModules {
         singleOf(::Third05Service)
         singleOf(::Third06Service)
         singleOf(::Third07Service)
+        singleOf(::Third08Service)
+        singleOf(::Third09Service)
+        singleOf(::Third10Service)
 
         // controller
         singleOf(::Third01Controller)
