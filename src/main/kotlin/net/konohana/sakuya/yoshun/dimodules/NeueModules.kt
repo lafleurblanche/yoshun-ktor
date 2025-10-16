@@ -16,6 +16,7 @@ import net.konohana.sakuya.yoshun.services.neue.Neue05Service
 import net.konohana.sakuya.yoshun.services.neue.Neue06Service
 import net.konohana.sakuya.yoshun.services.neue.Neue07Service
 import net.konohana.sakuya.yoshun.services.neue.Neue08Service
+import net.konohana.sakuya.yoshun.services.neue.Neue09Service
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -31,6 +32,7 @@ object NeueModules {
         singleOf(::Neue06Service)
         singleOf(::Neue07Service)
         singleOf(::Neue08Service)
+        singleOf(::Neue09Service)
 
         // controller
         singleOf(::Neue01Controller)
