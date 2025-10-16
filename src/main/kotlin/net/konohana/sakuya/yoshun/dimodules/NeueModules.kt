@@ -8,6 +8,7 @@ import net.konohana.sakuya.yoshun.controller.neue.Neue05Controller
 import net.konohana.sakuya.yoshun.controller.neue.Neue06Controller
 import net.konohana.sakuya.yoshun.controller.neue.Neue07Controller
 import net.konohana.sakuya.yoshun.controller.neue.Neue08Controller
+import net.konohana.sakuya.yoshun.controller.neue.Neue09Controller
 import net.konohana.sakuya.yoshun.services.neue.Neue01Service
 import net.konohana.sakuya.yoshun.services.neue.Neue02Service
 import net.konohana.sakuya.yoshun.services.neue.Neue03Service
@@ -43,5 +44,6 @@ object NeueModules {
         singleOf(::Neue06Controller)
         singleOf(::Neue07Controller)
         singleOf(::Neue08Controller)
+        singleOf(::Neue09Controller)
     }
 }
