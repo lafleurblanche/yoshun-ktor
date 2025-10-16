@@ -14,6 +14,7 @@ import net.konohana.sakuya.yoshun.controller.neue.Neue05Controller
 import net.konohana.sakuya.yoshun.controller.neue.Neue06Controller
 import net.konohana.sakuya.yoshun.controller.neue.Neue07Controller
 import net.konohana.sakuya.yoshun.controller.neue.Neue08Controller
+import net.konohana.sakuya.yoshun.controller.neue.Neue09Controller
 import org.koin.ktor.ext.inject
 
 fun Route.neueRouter() {
@@ -25,6 +26,7 @@ fun Route.neueRouter() {
     val neue06Controller by inject<Neue06Controller>()
     val neue07Controller by inject<Neue07Controller>()
     val neue08Controller by inject<Neue08Controller>()
+    val neue09Controller by inject<Neue09Controller>()
     route("neue01") {
         get {
             call.respond(neue01Controller.getNeue01StaList())
@@ -166,6 +168,24 @@ fun Route.neueRouter() {
                     return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
                 }
                 call.respond(neue08StaData)
+            }
+        }
+    }
+    route("neue09") {
+        get {
+            call.respond(neue09Controller.getNeue09StaList())
+        }
+    }
+    route("neue09") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val neue09StaData = neue09Controller.getNeue09StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(neue09StaData)
             }
         }
     }
