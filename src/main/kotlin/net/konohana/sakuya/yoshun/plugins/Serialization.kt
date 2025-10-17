@@ -11,6 +11,7 @@ import net.konohana.sakuya.yoshun.router.argw.argwRouter
 import net.konohana.sakuya.yoshun.router.enju.enjuRouter
 import net.konohana.sakuya.yoshun.router.lilie.lilieRouter
 import net.konohana.sakuya.yoshun.router.neue.neueRouter
+import net.konohana.sakuya.yoshun.router.sample.sampleNeueRoutes
 import net.konohana.sakuya.yoshun.router.third.thirdRouter
 
 fun Application.configureSerialization() {
@@ -21,6 +22,7 @@ fun Application.configureSerialization() {
         }
     }
     routing {
+        sampleNeueRoutes()
         argwRouter()
         enjuRouter()
         neueRouter()
