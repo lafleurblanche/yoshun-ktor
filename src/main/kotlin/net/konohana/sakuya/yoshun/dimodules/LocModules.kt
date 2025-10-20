@@ -1,5 +1,6 @@
 package net.konohana.sakuya.yoshun.dimodules
 
+import net.konohana.sakuya.yoshun.controller.loc.Loc01Controller
 import net.konohana.sakuya.yoshun.services.loc.Loc01Service
 import net.konohana.sakuya.yoshun.services.loc.Loc02Service
 import net.konohana.sakuya.yoshun.services.loc.Loc03Service
@@ -29,6 +30,10 @@ object LocModules {
         singleOf(::Loc09Service)
         singleOf(::Loc10Service)
         singleOf(::Loc11Service)
+
+        // controller
+        singleOf(::Loc01Controller)
+
     }
 
 }
