@@ -1,6 +1,16 @@
 package net.konohana.sakuya.yoshun.dimodules
 
 import net.konohana.sakuya.yoshun.controller.loc.Loc01Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc02Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc03Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc04Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc05Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc06Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc07Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc08Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc09Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc10Controller
+import net.konohana.sakuya.yoshun.controller.loc.Loc11Controller
 import net.konohana.sakuya.yoshun.services.loc.Loc01Service
 import net.konohana.sakuya.yoshun.services.loc.Loc02Service
 import net.konohana.sakuya.yoshun.services.loc.Loc03Service
@@ -33,6 +43,16 @@ object LocModules {
 
         // controller
         singleOf(::Loc01Controller)
+        singleOf(::Loc02Controller)
+        singleOf(::Loc03Controller)
+        singleOf(::Loc04Controller)
+        singleOf(::Loc05Controller)
+        singleOf(::Loc06Controller)
+        singleOf(::Loc07Controller)
+        singleOf(::Loc08Controller)
+        singleOf(::Loc09Controller)
+        singleOf(::Loc10Controller)
+        singleOf(::Loc11Controller)
 
     }
 
