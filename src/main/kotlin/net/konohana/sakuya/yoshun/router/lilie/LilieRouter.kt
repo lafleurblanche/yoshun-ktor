@@ -12,6 +12,7 @@ import net.konohana.sakuya.yoshun.controller.lilie.Lilie03Controller
 import net.konohana.sakuya.yoshun.controller.lilie.Lilie04Controller
 import net.konohana.sakuya.yoshun.controller.lilie.Lilie05Controller
 import net.konohana.sakuya.yoshun.controller.lilie.Lilie06Controller
+import net.konohana.sakuya.yoshun.controller.lilie.Lilie07Controller
 import org.koin.ktor.ext.inject
 
 fun Route.lilieRouter() {
@@ -21,6 +22,8 @@ fun Route.lilieRouter() {
     val lilie04Controller by inject<Lilie04Controller>()
     val lilie05Controller by inject<Lilie05Controller>()
     val lilie06Controller by inject<Lilie06Controller>()
+    val lilie07Controller by inject<Lilie07Controller>()
+
     route("lilie01") {
         get {
             call.respond(lilie01Controller.getLilie01StaList())
@@ -126,6 +129,24 @@ fun Route.lilieRouter() {
                     return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
                 }
                 call.respond(lilie06StaData)
+            }
+        }
+    }
+    route("lilie07") {
+        get {
+            call.respond(lilie07Controller.getLilie07StaList())
+        }
+    }
+    route("lilie07") {
+        route("{staCode}") {
+            get {
+                val staCode = call.parameters["staCode"]?: run {
+                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                }
+                val lilie07StaData = lilie07Controller.getLilie07StaListByStaCode(staCode = staCode) ?: run {
+                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                }
+                call.respond(lilie07StaData)
             }
         }
     }
