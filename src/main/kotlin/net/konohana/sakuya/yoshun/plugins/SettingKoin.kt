@@ -5,6 +5,7 @@ import io.ktor.server.application.install
 import net.konohana.sakuya.yoshun.dimodules.ArgwModules
 import net.konohana.sakuya.yoshun.dimodules.EnjuModules
 import net.konohana.sakuya.yoshun.dimodules.GateModules
+import net.konohana.sakuya.yoshun.dimodules.HnkiModules
 import net.konohana.sakuya.yoshun.dimodules.HrgiModules
 import net.konohana.sakuya.yoshun.dimodules.LilieModules
 import net.konohana.sakuya.yoshun.dimodules.LocBModules
@@ -21,6 +22,7 @@ fun Application.settingKoin() {
             EnjuModules.enjuKoinModules,
             GateModules.gateKoinModules,
             HrgiModules.hrgiKoinModules,
+            HnkiModules.hnkiKoinModules,
             LocModules.locKoinModules,
             LocBModules.locBKoinModules,
             NeueModules.neueKoinModules,
