@@ -10,6 +10,7 @@ import net.konohana.sakuya.yoshun.dimodules.LilieModules
 import net.konohana.sakuya.yoshun.dimodules.LocBModules
 import net.konohana.sakuya.yoshun.dimodules.LocModules
 import net.konohana.sakuya.yoshun.dimodules.NeueModules
+import net.konohana.sakuya.yoshun.dimodules.QuadraModules
 import net.konohana.sakuya.yoshun.dimodules.ThirdModules
 import org.koin.ktor.plugin.Koin
 
@@ -25,6 +26,7 @@ fun Application.settingKoin() {
             NeueModules.neueKoinModules,
             LilieModules.lilieKoinModules,
             ThirdModules.thirdKoinModule,
+            QuadraModules.quadraKoinModules,
         )
     }
 }
