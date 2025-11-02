@@ -27,147 +27,149 @@ fun Route.thirdRouter() {
     val third07Controller by inject<Third07Controller>()
     val third08Controller by inject<Third08Controller>()
 
-    route("third01") {
-        get {
-            call.respond(third01Controller.getThird01StaList())
-        }
-    }
-    route("third01") {
-        route("{staCode}") {
+    route("cerisier") {
+        route("third01") {
             get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
-                }
-                val third01StaData = third01Controller.getThird01StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(third01StaData)
+                call.respond(third01Controller.getThird01StaList())
             }
         }
-    }
-    route("third02") {
-        get {
-            call.respond(third02Controller.getThird02StaList())
-        }
-    }
-    route("third02") {
-        route("{staCode}") {
-            get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+        route("third01") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third01StaData = third01Controller.getThird01StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third01StaData)
                 }
-                val third02StaData = third02Controller.getThird02StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(third02StaData)
             }
         }
-    }
-    route("third03") {
-        get {
-            call.respond(third03Controller.getThird03StaList())
-        }
-    }
-    route("third03") {
-        route("{staCode}") {
+        route("third02") {
             get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
-                }
-                val third03StaData = third03Controller.getThird03StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(third03StaData)
+                call.respond(third02Controller.getThird02StaList())
             }
         }
-    }
-    route("third04") {
-        get {
-            call.respond(third04Controller.getThird04StaList())
-        }
-    }
-    route("third04") {
-        route("{staCode}") {
-            get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+        route("third02") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third02StaData = third02Controller.getThird02StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third02StaData)
                 }
-                val third04StaData = third04Controller.getThird04StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(third04StaData)
             }
         }
-    }
-    route("third05") {
-        get {
-            call.respond(third05Controller.getThird05StaList())
-        }
-    }
-    route("third05") {
-        route("{staCode}") {
+        route("third03") {
             get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
-                }
-                val third05StaData = third05Controller.getThird05StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(third05StaData)
+                call.respond(third03Controller.getThird03StaList())
             }
         }
-    }
-    route("third06") {
-        get {
-            call.respond(third06Controller.getThird06StaList())
-        }
-    }
-    route("third06") {
-        route("{staCode}") {
-            get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+        route("third03") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third03StaData = third03Controller.getThird03StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third03StaData)
                 }
-                val third06StaData = third06Controller.getThird06StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(third06StaData)
             }
         }
-    }
-    route("third07") {
-        get {
-            call.respond(third07Controller.getThird07StaList())
-        }
-    }
-    route("third07") {
-        route("{staCode}") {
+        route("third04") {
             get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
-                }
-                val third07StaData = third07Controller.getThird07StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(third07StaData)
+                call.respond(third04Controller.getThird04StaList())
             }
         }
-    }
-    route("third08") {
-        get {
-            call.respond(third08Controller.getThird08StaList())
+        route("third04") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third04StaData = third04Controller.getThird04StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third04StaData)
+                }
+            }
         }
-    }
-    route("third08") {
-        route("{staCode}") {
+        route("third05") {
             get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                call.respond(third05Controller.getThird05StaList())
+            }
+        }
+        route("third05") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third05StaData = third05Controller.getThird05StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third05StaData)
                 }
-                val third08StaData = third08Controller.getThird08StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+            }
+        }
+        route("third06") {
+            get {
+                call.respond(third06Controller.getThird06StaList())
+            }
+        }
+        route("third06") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third06StaData = third06Controller.getThird06StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third06StaData)
                 }
-                call.respond(third08StaData)
+            }
+        }
+        route("third07") {
+            get {
+                call.respond(third07Controller.getThird07StaList())
+            }
+        }
+        route("third07") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third07StaData = third07Controller.getThird07StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third07StaData)
+                }
+            }
+        }
+        route("third08") {
+            get {
+                call.respond(third08Controller.getThird08StaList())
+            }
+        }
+        route("third08") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val third08StaData = third08Controller.getThird08StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(third08StaData)
+                }
             }
         }
     }
