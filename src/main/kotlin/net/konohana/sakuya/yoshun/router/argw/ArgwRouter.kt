@@ -11,21 +11,23 @@ import org.koin.ktor.ext.inject
 
 fun Route.argwRouter() {
     val argw01Controller by inject<Argw01Controller>()
-    route("argw01") {
-        get {
-            call.respond(argw01Controller.getArgw01StaList())
-        }
-    }
-    route("argw01") {
-        route("{staCode}") {
+    route("cerisier") {
+        route("argw01") {
             get {
-                val staCode = call.parameters["staCode"]?: run {
-                    return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                call.respond(argw01Controller.getArgw01StaList())
+            }
+        }
+        route("argw01") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val argw01StaData = argw01Controller.getArgw01StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(argw01StaData)
                 }
-                val argw01StaData = argw01Controller.getArgw01StaListByStaCode(staCode = staCode) ?: run {
-                    return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
-                }
-                call.respond(argw01StaData)
             }
         }
     }
