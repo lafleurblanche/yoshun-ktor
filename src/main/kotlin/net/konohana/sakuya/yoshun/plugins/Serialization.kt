@@ -12,6 +12,7 @@ import net.konohana.sakuya.yoshun.router.enju.enjuRouter
 import net.konohana.sakuya.yoshun.router.hnki.hnkiRouter
 import net.konohana.sakuya.yoshun.router.hrgi.hrgiRouter
 import net.konohana.sakuya.yoshun.router.lilie.lilieRouter
+import net.konohana.sakuya.yoshun.router.loc.locRouter
 import net.konohana.sakuya.yoshun.router.neue.neueRouter
 import net.konohana.sakuya.yoshun.router.sample.sampleNeueRoutes
 import net.konohana.sakuya.yoshun.router.third.thirdRouter
@@ -31,6 +32,7 @@ fun Application.configureSerialization() {
         hrgiRouter()
         neueRouter()
         lilieRouter()
+        locRouter()
         thirdRouter()
     }
 }
