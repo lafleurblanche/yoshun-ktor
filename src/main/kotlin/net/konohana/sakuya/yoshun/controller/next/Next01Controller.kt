@@ -1,0 +1,16 @@
+package net.konohana.sakuya.yoshun.controller.next
+
+import net.konohana.sakuya.yoshun.dtos.next.Next01Dto
+import net.konohana.sakuya.yoshun.services.next.Next01Service
+
+class Next01Controller(
+    private val next01Service: Next01Service
+) {
+    suspend fun getNext01StaList(): List<Next01Dto> {
+        return next01Service.getNext01()
+    }
+
+    suspend fun getNext01StaListByStaCode(staCode: String): Next01Dto? {
+        return next01Service.getNext01ByStaCode(staCode = staCode)
+    }
+}
