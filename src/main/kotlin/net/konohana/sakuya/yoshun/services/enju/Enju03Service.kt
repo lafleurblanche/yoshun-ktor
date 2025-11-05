@@ -21,4 +21,21 @@ class Enju03Service {
             Enju03.selectAll().map(::resultRowEnju03)
         }
     }
+
+    suspend fun getEnju03ByStaCode(staCode: String): Enju03Dto? {
+        return KaedeDatabaseFactory.dbQuery {
+            Enju03.selectAll()
+                .where { Enju03.staCode eq staCode }
+                .singleOrNull()?.let {
+                    Enju03Dto(
+                        id = it[Enju03.id],
+                        routeID = it[Enju03.routeID],
+                        staCode = it[Enju03.staCode],
+                        fromStaCode = it[Enju03.fromStaCode],
+                        toStaCode = it[Enju03.toStaCode],
+                        staName = it[Enju03.staName],
+                    )
+                }
+        }
+    }
 }

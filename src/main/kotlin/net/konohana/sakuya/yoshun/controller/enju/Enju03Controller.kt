@@ -9,4 +9,8 @@ class Enju03Controller(
     suspend fun getEnju03StaList(): List<Enju03Dto> {
         return enju03Service.getEnju03()
     }
+
+    suspend fun getEnju03StaListByStaCode(staCode: String): Enju03Dto? {
+        return enju03Service.getEnju03ByStaCode(staCode = staCode)
+    }
 }
