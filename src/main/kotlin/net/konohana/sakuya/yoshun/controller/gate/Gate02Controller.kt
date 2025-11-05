@@ -9,4 +9,8 @@ class Gate02Controller(
     suspend fun getGate02StaList(): List<Gate02Dto> {
         return gate02Service.getGate02()
     }
+
+    suspend fun getGate02StaListByStaCode(staCode: String): Gate02Dto? {
+        return gate02Service.getGate02ByStaCode(staCode = staCode)
+    }
 }
