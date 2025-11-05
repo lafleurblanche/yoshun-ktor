@@ -15,6 +15,8 @@ import net.konohana.sakuya.yoshun.controller.enju.Enju06Controller
 import net.konohana.sakuya.yoshun.controller.enju.Enju07Controller
 import net.konohana.sakuya.yoshun.controller.enju.Enju08Controller
 import net.konohana.sakuya.yoshun.controller.enju.Enju09Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju10Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju11Controller
 import org.koin.ktor.ext.inject
 
 fun Route.enjuRouter() {
@@ -27,6 +29,8 @@ fun Route.enjuRouter() {
     val enju07Controller by inject<Enju07Controller>()
     val enju08Controller by inject<Enju08Controller>()
     val enju09Controller by inject<Enju09Controller>()
+    val enju10Controller by inject<Enju10Controller>()
+    val enju11Controller by inject<Enju11Controller>()
     route("cerisier") {
         route("enju01") {
             get {
@@ -115,6 +119,114 @@ fun Route.enjuRouter() {
                         return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
                     }
                     call.respond(enju05StaData)
+                }
+            }
+        }
+        route("enju06") {
+            get {
+                call.respond(enju06Controller.getEnju06StaList())
+            }
+        }
+        route("enju06") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val enju06StaData = enju06Controller.getEnju06StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(enju06StaData)
+                }
+            }
+        }
+        route("enju07") {
+            get {
+                call.respond(enju07Controller.getEnju07StaList())
+            }
+        }
+        route("enju07") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val enju07StaData = enju07Controller.getEnju07StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(enju07StaData)
+                }
+            }
+        }
+        route("enju08") {
+            get {
+                call.respond(enju08Controller.getEnju08StaList())
+            }
+        }
+        route("enju08") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val enju08StaData = enju08Controller.getEnju08StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(enju08StaData)
+                }
+            }
+        }
+        route("enju09") {
+            get {
+                call.respond(enju09Controller.getEnju09StaList())
+            }
+        }
+        route("enju09") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val enju09StaData = enju09Controller.getEnju09StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(enju09StaData)
+                }
+            }
+        }
+        route("enju10") {
+            get {
+                call.respond(enju10Controller.getEnju10StaList())
+            }
+        }
+        route("enju10") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val enju10StaData = enju10Controller.getEnju10StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(enju10StaData)
+                }
+            }
+        }
+        route("enju11") {
+            get {
+                call.respond(enju11Controller.getEnju11StaList())
+            }
+        }
+        route("enju11") {
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val enju11StaData = enju11Controller.getEnju11StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(enju11StaData)
                 }
             }
         }

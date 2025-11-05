@@ -9,4 +9,8 @@ class Enju11Controller(
     suspend fun getEnju11StaList(): List<Enju11Dto> {
         return enju11Service.getEnju11()
     }
+
+    suspend fun getEnju11StaListByStaCode(staCode: String): Enju11Dto? {
+        return enju11Service.getEnju11ByStaCode(staCode = staCode)
+    }
 }
