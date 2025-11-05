@@ -9,4 +9,8 @@ class Enju09Controller(
     suspend fun getEnju09StaList(): List<Enju09Dto> {
         return enju09Service.getEnju09()
     }
+
+    suspend fun getEnju09StaListByStaCode(staCode: String): Enju09Dto? {
+        return enju09Service.getEnju09ByStaCode(staCode = staCode)
+    }
 }
