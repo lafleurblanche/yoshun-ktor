@@ -11,6 +11,14 @@ import net.konohana.sakuya.yoshun.controller.enju.Enju08Controller
 import net.konohana.sakuya.yoshun.controller.enju.Enju09Controller
 import net.konohana.sakuya.yoshun.controller.enju.Enju10Controller
 import net.konohana.sakuya.yoshun.controller.enju.Enju11Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju12Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju13Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju14Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju15Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju16Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju17Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju18Controller
+import net.konohana.sakuya.yoshun.controller.enju.Enju19Controller
 import net.konohana.sakuya.yoshun.services.enju.Enju01Service
 import net.konohana.sakuya.yoshun.services.enju.Enju02Service
 import net.konohana.sakuya.yoshun.services.enju.Enju03Service
@@ -57,7 +65,6 @@ object EnjuModules {
         singleOf(::Enju18Service)
         singleOf(::Enju19Service)
 
-
         // controller
         singleOf(::Enju01Controller)
         singleOf(::Enju02Controller)
@@ -70,5 +77,13 @@ object EnjuModules {
         singleOf(::Enju09Controller)
         singleOf(::Enju10Controller)
         singleOf(::Enju11Controller)
+        singleOf(::Enju12Controller)
+        singleOf(::Enju13Controller)
+        singleOf(::Enju14Controller)
+        singleOf(::Enju15Controller)
+        singleOf(::Enju16Controller)
+        singleOf(::Enju17Controller)
+        singleOf(::Enju18Controller)
+        singleOf(::Enju19Controller)
     }
 }
