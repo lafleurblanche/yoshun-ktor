@@ -27,6 +27,9 @@ import net.konohana.sakuya.yoshun.services.enju.Enju13Service
 import net.konohana.sakuya.yoshun.services.enju.Enju14Service
 import net.konohana.sakuya.yoshun.services.enju.Enju15Service
 import net.konohana.sakuya.yoshun.services.enju.Enju16Service
+import net.konohana.sakuya.yoshun.services.enju.Enju17Service
+import net.konohana.sakuya.yoshun.services.enju.Enju18Service
+import net.konohana.sakuya.yoshun.services.enju.Enju19Service
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -50,6 +53,9 @@ object EnjuModules {
         singleOf(::Enju14Service)
         singleOf(::Enju15Service)
         singleOf(::Enju16Service)
+        singleOf(::Enju17Service)
+        singleOf(::Enju18Service)
+        singleOf(::Enju19Service)
 
 
         // controller
