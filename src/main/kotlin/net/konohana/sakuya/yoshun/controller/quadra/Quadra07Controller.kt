@@ -1,5 +1,6 @@
 package net.konohana.sakuya.yoshun.controller.quadra
 
+import net.konohana.sakuya.yoshun.dtos.quadra.Quadra07FrontendDto
 import net.konohana.sakuya.yoshun.dtos.quadra.Quadra07Dto
 import net.konohana.sakuya.yoshun.services.quadra.Quadra07Service
 
@@ -12,5 +13,10 @@ class Quadra07Controller(
 
     suspend fun getQuadra07StaListByStaCode(staCode: String): Quadra07Dto? {
         return quadra07Service.getQuadra07ByStaCode(staCode = staCode)
+    }
+
+    suspend fun getQuadra07FrontendList(): List<Quadra07FrontendDto> {
+        // サービス層の新しいメソッドを呼び出す
+        return quadra07Service.getQuadra07Frontend()
     }
 }
