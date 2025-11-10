@@ -2,8 +2,11 @@ package net.konohana.sakuya.yoshun.services.quadra
 
 import net.konohana.sakuya.yoshun.db.KaedeDatabaseFactory
 import net.konohana.sakuya.yoshun.dtos.quadra.Quadra09Dto
+import net.konohana.sakuya.yoshun.dtos.quadra.Quadra09FrontendDto
 import net.konohana.sakuya.yoshun.models.quadra.Quadra09
+import net.konohana.sakuya.yoshun.models.routes.QuadraRoutes
 import org.jetbrains.exposed.sql.ResultRow
+import org.jetbrains.exposed.sql.leftJoin
 import org.jetbrains.exposed.sql.selectAll
 
 class Quadra09Service {
@@ -15,6 +18,44 @@ class Quadra09Service {
         staCode = row[Quadra09.staCode],
         staName = row[Quadra09.staName],
     )
+
+    private fun resultRowQuadra09Frontend(row: ResultRow): Quadra09FrontendDto {
+        // 1. staName 分割ロジック (前回の回答で確認済み)
+        val staName = row[Quadra09.staName]
+        val (staName1, staName2) = when {
+            staName.length >= 4 -> Pair(staName.take(2), staName.substring(2, 4))
+            else -> Pair(staName, "")
+        }
+
+        // 2. viaRouteName 取得とブランク化ロジック
+        // LEFT JOINの結果、対応するレコードがない場合はnullになるため、
+        // ?: "" (エルビス演算子) でnullの場合にブランクを設定します。
+        val viaRouteName = row.getOrNull(QuadraRoutes.viaRouteName) ?: ""
+
+        // 3. Frontend DTOの生成
+        return Quadra09FrontendDto(
+            id = row[Quadra09.id],
+            viaRouteName = viaRouteName,
+            staCode = row[Quadra09.staCode],
+            staName1 = staName1,
+            staName2 = staName2,
+            staName = staName,
+        )
+    }
+
+    suspend fun getQuadra09Frontend(): List<Quadra09FrontendDto> {
+        return KaedeDatabaseFactory.dbQuery {
+            Quadra09
+                // LEFT JOIN を使用して QuadraRoutes テーブルと結合
+                .leftJoin(
+                    QuadraRoutes,
+                    { Quadra09.routeID },
+                    { QuadraRoutes.routeID }
+                )
+                .selectAll()
+                .map(::resultRowQuadra09Frontend)
+        }
+    }
 
     suspend fun getQuadra09(): List<Quadra09Dto> {
         return KaedeDatabaseFactory.dbQuery {
