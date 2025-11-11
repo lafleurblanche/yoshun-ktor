@@ -9,5 +9,4 @@ data class Quadra14FrontendDto(
     val staCode: String,
     val staName1: String,
     val staName2: String,
-    val staName: String,
 )
