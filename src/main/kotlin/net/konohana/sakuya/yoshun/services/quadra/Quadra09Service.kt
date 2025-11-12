@@ -39,7 +39,6 @@ class Quadra09Service {
             staCode = row[Quadra09.staCode],
             staName1 = staName1,
             staName2 = staName2,
-            staName = staName,
         )
     }
 
