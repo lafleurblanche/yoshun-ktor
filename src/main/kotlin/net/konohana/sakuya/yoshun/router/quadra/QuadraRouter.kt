@@ -27,8 +27,13 @@ fun Route.quadraRouter() {
             get {
                 call.respond(quadra01Controller.getQuadra01StaList())
             }
-        }
-        route("quadra01") {
+            // 2. ⭐ 新規：フロントエンド用全件取得（新しいDTO） -> GET /cerisier/quadra01/frontend
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra01Controller.getQuadra01FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
