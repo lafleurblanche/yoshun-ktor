@@ -39,7 +39,6 @@ class Quadra15Service {
             staCode = row[Quadra15.staCode],
             staName1 = staName1,
             staName2 = staName2,
-            staName = staName,
         )
     }
 
