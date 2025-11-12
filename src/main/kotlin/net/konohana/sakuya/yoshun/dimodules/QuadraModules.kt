@@ -9,6 +9,12 @@ import net.konohana.sakuya.yoshun.controller.quadra.Quadra06Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra07Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra08Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra09Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra10Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra11Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra12Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra13Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra14Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra15Controller
 import net.konohana.sakuya.yoshun.services.quadra.Quadra01Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra02Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra03Service
@@ -21,6 +27,9 @@ import net.konohana.sakuya.yoshun.services.quadra.Quadra09Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra10Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra11Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra12Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra13Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra14Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra15Service
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -40,6 +49,9 @@ object QuadraModules {
         singleOf(::Quadra10Service)
         singleOf(::Quadra11Service)
         singleOf(::Quadra12Service)
+        singleOf(::Quadra13Service)
+        singleOf(::Quadra14Service)
+        singleOf(::Quadra15Service)
 
         // controllers
         singleOf(::Quadra01Controller)
@@ -51,6 +63,12 @@ object QuadraModules {
         singleOf(::Quadra07Controller)
         singleOf(::Quadra08Controller)
         singleOf(::Quadra09Controller)
+        singleOf(::Quadra10Controller)
+        singleOf(::Quadra11Controller)
+        singleOf(::Quadra12Controller)
+        singleOf(::Quadra13Controller)
+        singleOf(::Quadra14Controller)
+        singleOf(::Quadra15Controller)
 
     }
 }
