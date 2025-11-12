@@ -1,5 +1,7 @@
 package net.konohana.sakuya.yoshun.services.quadra
 
+import net.konohana.sakuya.yoshun.constants.CommonConst.Companion.MIN_LENGTH_FOR_SPLIT
+import net.konohana.sakuya.yoshun.constants.CommonConst.Companion.SPLIT_LENGTH
 import net.konohana.sakuya.yoshun.db.KaedeDatabaseFactory
 import net.konohana.sakuya.yoshun.dtos.quadra.Quadra12Dto
 import net.konohana.sakuya.yoshun.dtos.quadra.Quadra12FrontendDto
@@ -23,7 +25,12 @@ class Quadra12Service {
         // 1. staName 分割ロジック (前回の回答で確認済み)
         val staName = row[Quadra12.staName]
         val (staName1, staName2) = when {
-            staName.length >= 4 -> Pair(staName.take(2), staName.substring(2, 4))
+            staName.length >= MIN_LENGTH_FOR_SPLIT -> Pair(
+                // 先頭から2文字を取得
+                staName.take(SPLIT_LENGTH),
+                // 2文字目以降を取得し、そこから2文字を取得 (4文字目まで)
+                staName.drop(SPLIT_LENGTH).take(SPLIT_LENGTH)
+            )
             else -> Pair(staName, "")
         }
 
