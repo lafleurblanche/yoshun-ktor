@@ -50,8 +50,6 @@ fun Route.quadraRouter() {
             get {
                 call.respond(quadra02Controller.getQuadra02StaList())
             }
-        }
-        route("quadra02") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -64,12 +62,11 @@ fun Route.quadraRouter() {
                 }
             }
         }
+
         route("quadra03") {
             get {
                 call.respond(quadra03Controller.getQuadra03StaList())
             }
-        }
-        route("quadra03") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -82,6 +79,7 @@ fun Route.quadraRouter() {
                 }
             }
         }
+
         route("quadra04") {
             get {
                 call.respond(quadra04Controller.getQuadra04StaList())
