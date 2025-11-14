@@ -26,8 +26,6 @@ fun Route.nextRouter() {
             get {
                 call.respond(next01Controller.getNext01StaList())
             }
-        }
-        route("next01") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -44,8 +42,6 @@ fun Route.nextRouter() {
             get {
                 call.respond(next02Controller.getNext02StaList())
             }
-        }
-        route("next02") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -62,8 +58,6 @@ fun Route.nextRouter() {
             get {
                 call.respond(next03Controller.getNext03StaList())
             }
-        }
-        route("next03") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -80,8 +74,6 @@ fun Route.nextRouter() {
             get {
                 call.respond(next04Controller.getNext04StaList())
             }
-        }
-        route("next04") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -98,8 +90,6 @@ fun Route.nextRouter() {
             get {
                 call.respond(next05Controller.getNext05StaList())
             }
-        }
-        route("next05") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
