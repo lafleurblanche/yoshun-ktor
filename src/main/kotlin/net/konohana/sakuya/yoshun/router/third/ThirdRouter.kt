@@ -36,8 +36,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third01Controller.getThird01StaList())
             }
-        }
-        route("third01") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -54,8 +52,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third02Controller.getThird02StaList())
             }
-        }
-        route("third02") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -72,8 +68,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third03Controller.getThird03StaList())
             }
-        }
-        route("third03") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -90,8 +84,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third04Controller.getThird04StaList())
             }
-        }
-        route("third04") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -108,8 +100,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third05Controller.getThird05StaList())
             }
-        }
-        route("third05") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -126,8 +116,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third06Controller.getThird06StaList())
             }
-        }
-        route("third06") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -144,8 +132,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third07Controller.getThird07StaList())
             }
-        }
-        route("third07") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -162,8 +148,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third08Controller.getThird08StaList())
             }
-        }
-        route("third08") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -180,8 +164,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third09Controller.getThird09StaList())
             }
-        }
-        route("third09") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -198,8 +180,6 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third10Controller.getThird10StaList())
             }
-        }
-        route("third10") {
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
