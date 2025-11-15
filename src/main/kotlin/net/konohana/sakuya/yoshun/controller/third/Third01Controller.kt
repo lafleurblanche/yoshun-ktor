@@ -1,5 +1,6 @@
 package net.konohana.sakuya.yoshun.controller.third
 
+import net.konohana.sakuya.yoshun.dtos.third.Third01FrontendDto
 import net.konohana.sakuya.yoshun.dtos.third.Third01Dto
 import net.konohana.sakuya.yoshun.services.third.Third01Service
 
@@ -12,5 +13,10 @@ class Third01Controller(
 
     suspend fun getThird01StaListByStaCode(staCode: String): Third01Dto? {
         return third01Service.getThird01ByStaCode(staCode = staCode)
+    }
+
+    suspend fun getThird01FrontendList(): List<Third01FrontendDto> {
+        // サービス層の新しいメソッドを呼び出す
+        return third01Service.getThird01Frontend()
     }
 }
