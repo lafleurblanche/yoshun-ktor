@@ -62,6 +62,12 @@ fun Route.quadraRouter() {
             get {
                 call.respond(quadra02Controller.getQuadra02StaList())
             }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra02Controller.getQuadra02FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -77,6 +83,12 @@ fun Route.quadraRouter() {
         route("quadra03") {
             get {
                 call.respond(quadra03Controller.getQuadra03StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra03Controller.getQuadra03FrontendList())
+                }
             }
             route("{staCode}") {
                 get {
@@ -94,6 +106,12 @@ fun Route.quadraRouter() {
             get {
                 call.respond(quadra04Controller.getQuadra04StaList())
             }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra04Controller.getQuadra04FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -109,6 +127,12 @@ fun Route.quadraRouter() {
         route("quadra05") {
             get {
                 call.respond(quadra05Controller.getQuadra05StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra05Controller.getQuadra05FrontendList())
+                }
             }
             route("{staCode}") {
                 get {
