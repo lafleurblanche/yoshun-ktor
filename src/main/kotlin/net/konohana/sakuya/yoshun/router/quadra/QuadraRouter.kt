@@ -194,6 +194,12 @@ fun Route.quadraRouter() {
             get {
                 call.respond(quadra08Controller.getQuadra08StaList())
             }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra08Controller.getQuadra08FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -209,6 +215,12 @@ fun Route.quadraRouter() {
         route("quadra09") {
             get {
                 call.respond(quadra09Controller.getQuadra09StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra09Controller.getQuadra09FrontendList())
+                }
             }
             route("{staCode}") {
                 get {
@@ -226,6 +238,12 @@ fun Route.quadraRouter() {
             get {
                 call.respond(quadra10Controller.getQuadra10StaList())
             }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra10Controller.getQuadra10FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -242,6 +260,12 @@ fun Route.quadraRouter() {
             get {
                 call.respond(quadra11Controller.getQuadra11StaList())
             }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra11Controller.getQuadra11FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -257,6 +281,12 @@ fun Route.quadraRouter() {
         route("quadra12") {
             get {
                 call.respond(quadra12Controller.getQuadra12StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra12Controller.getQuadra12FrontendList())
+                }
             }
             route("{staCode}") {
                 get {
