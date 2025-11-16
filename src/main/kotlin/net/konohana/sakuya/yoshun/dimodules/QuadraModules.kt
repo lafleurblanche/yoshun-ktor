@@ -15,6 +15,11 @@ import net.konohana.sakuya.yoshun.controller.quadra.Quadra12Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra13Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra14Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra15Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra16Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra17Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra18Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra19Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra20Controller
 import net.konohana.sakuya.yoshun.services.quadra.Quadra01Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra02Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra03Service
@@ -79,6 +84,10 @@ object QuadraModules {
         singleOf(::Quadra13Controller)
         singleOf(::Quadra14Controller)
         singleOf(::Quadra15Controller)
-
+        singleOf(::Quadra16Controller)
+        singleOf(::Quadra17Controller)
+        singleOf(::Quadra18Controller)
+        singleOf(::Quadra19Controller)
+        singleOf(::Quadra20Controller)
     }
 }
