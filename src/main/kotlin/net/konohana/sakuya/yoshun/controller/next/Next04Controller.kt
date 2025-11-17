@@ -1,5 +1,6 @@
 package net.konohana.sakuya.yoshun.controller.next
 
+import net.konohana.sakuya.yoshun.dtos.next.Next04FrontendDto
 import net.konohana.sakuya.yoshun.dtos.next.Next04Dto
 import net.konohana.sakuya.yoshun.services.next.Next04Service
 
@@ -12,5 +13,10 @@ class Next04Controller(
 
     suspend fun getNext04StaListByStaCode(staCode: String): Next04Dto? {
         return next04Service.getNext04ByStaCode(staCode = staCode)
+    }
+
+    suspend fun getNext04FrontendList(): List<Next04FrontendDto> {
+        // サービス層の新しいメソッドを呼び出す
+        return next04Service.getNext04Frontend()
     }
 }
