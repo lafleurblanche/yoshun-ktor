@@ -20,6 +20,9 @@ import net.konohana.sakuya.yoshun.controller.quadra.Quadra17Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra18Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra19Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra20Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra21Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra22Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra23Controller
 import net.konohana.sakuya.yoshun.services.quadra.Quadra01Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra02Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra03Service
@@ -40,6 +43,9 @@ import net.konohana.sakuya.yoshun.services.quadra.Quadra17Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra18Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra19Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra20Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra21Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra22Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra23Service
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -67,6 +73,9 @@ object QuadraModules {
         singleOf(::Quadra18Service)
         singleOf(::Quadra19Service)
         singleOf(::Quadra20Service)
+        singleOf(::Quadra21Service)
+        singleOf(::Quadra22Service)
+        singleOf(::Quadra23Service)
 
         // controllers
         singleOf(::Quadra01Controller)
@@ -89,5 +98,8 @@ object QuadraModules {
         singleOf(::Quadra18Controller)
         singleOf(::Quadra19Controller)
         singleOf(::Quadra20Controller)
+        singleOf(::Quadra21Controller)
+        singleOf(::Quadra22Controller)
+        singleOf(::Quadra23Controller)
     }
 }
