@@ -46,6 +46,9 @@ import net.konohana.sakuya.yoshun.services.quadra.Quadra20Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra21Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra22Service
 import net.konohana.sakuya.yoshun.services.quadra.Quadra23Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra24Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra25Service
+import net.konohana.sakuya.yoshun.services.quadra.Quadra26Service
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -76,6 +79,9 @@ object QuadraModules {
         singleOf(::Quadra21Service)
         singleOf(::Quadra22Service)
         singleOf(::Quadra23Service)
+        singleOf(::Quadra24Service)
+        singleOf(::Quadra25Service)
+        singleOf(::Quadra26Service)
 
         // controllers
         singleOf(::Quadra01Controller)
