@@ -25,6 +25,14 @@ import net.konohana.sakuya.yoshun.controller.quadra.Quadra15Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra16Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra17Controller
 import net.konohana.sakuya.yoshun.controller.quadra.Quadra18Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra19Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra20Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra21Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra22Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra23Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra24Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra25Controller
+import net.konohana.sakuya.yoshun.controller.quadra.Quadra26Controller
 import org.koin.ktor.ext.inject
 
 fun Route.quadraRouter() {
@@ -46,6 +54,14 @@ fun Route.quadraRouter() {
     val quadra16Controller by inject<Quadra16Controller>()
     val quadra17Controller by inject<Quadra17Controller>()
     val quadra18Controller by inject<Quadra18Controller>()
+    val quadra19Controller by inject<Quadra19Controller>()
+    val quadra20Controller by inject<Quadra20Controller>()
+    val quadra21Controller by inject<Quadra21Controller>()
+    val quadra22Controller by inject<Quadra22Controller>()
+    val quadra23Controller by inject<Quadra23Controller>()
+    val quadra24Controller by inject<Quadra24Controller>()
+    val quadra25Controller by inject<Quadra25Controller>()
+    val quadra26Controller by inject<Quadra26Controller>()
 
     route("cerisier") {
         route("quadra01") {
@@ -442,6 +458,184 @@ fun Route.quadraRouter() {
                         return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
                     }
                     call.respond(quadra18StaData)
+                }
+            }
+        }
+        route("quadra19") {
+            get {
+                call.respond(quadra19Controller.getQuadra19StaList())
+            }
+            // 2. ⭐ 新規：フロントエンド用全件取得（新しいDTO） -> GET /cerisier/quadra19/frontend
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra19Controller.getQuadra19FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra19StaData = quadra19Controller.getQuadra19StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra19StaData)
+                }
+            }
+        }
+        route("quadra20") {
+            get {
+                call.respond(quadra20Controller.getQuadra20StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra20Controller.getQuadra20FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra20StaData = quadra20Controller.getQuadra20StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra20StaData)
+                }
+            }
+        }
+        route("quadra21") {
+            get {
+                call.respond(quadra21Controller.getQuadra21StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra21Controller.getQuadra21FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra21StaData = quadra21Controller.getQuadra21StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra21StaData)
+                }
+            }
+        }
+        route("quadra22") {
+            get {
+                call.respond(quadra22Controller.getQuadra22StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra22Controller.getQuadra22FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra22StaData = quadra22Controller.getQuadra22StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra22StaData)
+                }
+            }
+        }
+        route("quadra23") {
+            get {
+                call.respond(quadra23Controller.getQuadra23StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra23Controller.getQuadra23FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra23StaData = quadra23Controller.getQuadra23StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra23StaData)
+                }
+            }
+        }
+        route("quadra24") {
+            get {
+                call.respond(quadra24Controller.getQuadra24StaList())
+            }
+            // 2. ⭐ 新規：フロントエンド用全件取得（新しいDTO） -> GET /cerisier/quadra24/frontend
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra24Controller.getQuadra24FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra24StaData = quadra24Controller.getQuadra24StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra24StaData)
+                }
+            }
+        }
+        route("quadra25") {
+            get {
+                call.respond(quadra25Controller.getQuadra25StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra25Controller.getQuadra25FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra25StaData = quadra25Controller.getQuadra25StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra25StaData)
+                }
+            }
+        }
+        route("quadra26") {
+            get {
+                call.respond(quadra26Controller.getQuadra26StaList())
+            }
+            route("frontend") {
+                get {
+                    // 新しいコントローラメソッドを呼び出す
+                    call.respond(quadra26Controller.getQuadra26FrontendList())
+                }
+            }
+            route("{staCode}") {
+                get {
+                    val staCode = call.parameters["staCode"]?: run {
+                        return@get call.respond(HttpStatusCode.BadRequest, "staCodeが指定されていません")
+                    }
+                    val quadra26StaData = quadra26Controller.getQuadra26StaListByStaCode(staCode = staCode) ?: run {
+                        return@get call.respond(HttpStatusCode.NotFound, "データが存在しません 駅名コード: $staCode")
+                    }
+                    call.respond(quadra26StaData)
                 }
             }
         }
