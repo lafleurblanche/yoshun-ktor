@@ -39,7 +39,6 @@ class Third04Service {
         // ?: "" (エルビス演算子) でnullの場合にブランクを設定します。
         val viaRouteName = row.getOrNull(ThirdRoutes.viaRouteName) ?: ""
 
-        // 3. Frontend DTOの生成
         return Third04FrontendDto(
             id = row[Third04.id],
             viaRouteName = viaRouteName,
@@ -52,7 +51,6 @@ class Third04Service {
     suspend fun getThird04Frontend(): List<Third04FrontendDto> {
         return KaedeDatabaseFactory.dbQuery {
             Third04
-                // LEFT JOIN を使用して ThirdRoutes テーブルと結合
                 .leftJoin(
                     ThirdRoutes,
                     { Third04.routeID },
