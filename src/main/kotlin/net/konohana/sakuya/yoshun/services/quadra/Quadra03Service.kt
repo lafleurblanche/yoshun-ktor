@@ -52,7 +52,6 @@ class Quadra03Service {
     suspend fun getQuadra03Frontend(): List<Quadra03FrontendDto> {
         return KaedeDatabaseFactory.dbQuery {
             Quadra03
-                // LEFT JOIN を使用して QuadraRoutes テーブルと結合
                 .leftJoin(
                     QuadraRoutes,
                     { Quadra03.routeID },
