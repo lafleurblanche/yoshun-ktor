@@ -36,6 +36,11 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third01Controller.getThird01StaList())
             }
+            route("frontend") {
+                get {
+                    call.respond(third01Controller.getThird01FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -51,6 +56,11 @@ fun Route.thirdRouter() {
         route("third02") {
             get {
                 call.respond(third02Controller.getThird02StaList())
+            }
+            route("frontend") {
+                get {
+                    call.respond(third02Controller.getThird02FrontendList())
+                }
             }
             route("{staCode}") {
                 get {
@@ -68,6 +78,11 @@ fun Route.thirdRouter() {
             get {
                 call.respond(third03Controller.getThird03StaList())
             }
+            route("frontend") {
+                get {
+                    call.respond(third03Controller.getThird03FrontendList())
+                }
+            }
             route("{staCode}") {
                 get {
                     val staCode = call.parameters["staCode"]?: run {
@@ -83,6 +98,11 @@ fun Route.thirdRouter() {
         route("third04") {
             get {
                 call.respond(third04Controller.getThird04StaList())
+            }
+            route("frontend") {
+                get {
+                    call.respond(third04Controller.getThird04FrontendList())
+                }
             }
             route("{staCode}") {
                 get {
