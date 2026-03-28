@@ -45,7 +45,6 @@ class Next02Service {
     suspend fun getNext02Frontend(): List<Next02FrontendDto> {
         return KaedeDatabaseFactory.dbQuery {
             Next02
-
                 .leftJoin(
                     NextRoutes,
                     { Next02.routeID },
