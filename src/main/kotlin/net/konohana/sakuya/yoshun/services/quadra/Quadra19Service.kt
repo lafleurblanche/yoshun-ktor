@@ -39,7 +39,6 @@ class Quadra19Service {
         // ?: "" (エルビス演算子) でnullの場合にブランクを設定します。
         val viaRouteName = row.getOrNull(QuadraRoutes.viaRouteName) ?: ""
 
-        // 3. Frontend DTOの生成
         return Quadra19FrontendDto(
             id = row[Quadra19.id],
             viaRouteName = viaRouteName,
@@ -52,7 +51,6 @@ class Quadra19Service {
     suspend fun getQuadra19Frontend(): List<Quadra19FrontendDto> {
         return KaedeDatabaseFactory.dbQuery {
             Quadra19
-                // LEFT JOIN を使用して QuadraRoutes テーブルと結合
                 .leftJoin(
                     QuadraRoutes,
                     { Quadra19.routeID },

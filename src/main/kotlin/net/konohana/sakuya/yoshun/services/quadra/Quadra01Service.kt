@@ -22,24 +22,18 @@ class Quadra01Service {
     )
 
     private fun resultRowQuadra01Frontend(row: ResultRow): Quadra01FrontendDto {
-        // 1. staName 分割ロジック (前回の回答で確認済み)
+
         val staName = row[Quadra01.staName]
         val (staName1, staName2) = when {
             staName.length >= MIN_LENGTH_FOR_SPLIT -> Pair(
-                // 先頭から2文字を取得
                 staName.take(SPLIT_LENGTH),
-                // 2文字目以降を取得し、そこから2文字を取得 (4文字目まで)
                 staName.drop(SPLIT_LENGTH).take(SPLIT_LENGTH)
             )
             else -> Pair(staName, "")
         }
 
-        // 2. viaRouteName 取得とブランク化ロジック
-        // LEFT JOINの結果、対応するレコードがない場合はnullになるため、
-        // ?: "" (エルビス演算子) でnullの場合にブランクを設定します。
         val viaRouteName = row.getOrNull(QuadraRoutes.viaRouteName) ?: ""
 
-        // 3. Frontend DTOの生成
         return Quadra01FrontendDto(
             id = row[Quadra01.id],
             viaRouteName = viaRouteName,
@@ -52,7 +46,6 @@ class Quadra01Service {
     suspend fun getQuadra01Frontend(): List<Quadra01FrontendDto> {
         return KaedeDatabaseFactory.dbQuery {
             Quadra01
-                // LEFT JOIN を使用して QuadraRoutes テーブルと結合
                 .leftJoin(
                     QuadraRoutes,
                     { Quadra01.routeID },
